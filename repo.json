@@ -38,9 +38,9 @@ pipeline {
 
                sudo mv target/studentapp-2.2-SNAPSHOT.war studentapp.war
 
-               echo "sh pwd'
+               cd /home/ubuntu/workspace/my-project 
 
-                sudo mv student.war apache-tomcat-8.5.93/webapps
+                sudo mv student.war /home/ubuntu/workspace/my-project/apache-tomcat-8.5.93/webapps
 
                 cd apache-tomcat-8.5.93/bin
 
