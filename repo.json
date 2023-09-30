@@ -39,15 +39,15 @@ pipeline {
 
                 cd /home/ubuntu/workspace/my-project/target
 
-               sudo mv studentapp-2.2-SNAPSHOT.war studentapp.war
+               sudo mv studentapp-2.2-SNAPSHOT.war student.war
 
                cd /home/ubuntu/workspace/my-project/target 
 
-                sudo mv studentapp.war /home/ubuntu/workspace/my-project/apache-tomcat-8.5.93/webapps
+                sudo mv student.war /home/ubuntu/workspace/my-project/apache-tomcat-8.5.93/webapps
 
                cd /home/ubuntu/workspace/my-project/apache-tomcat-8.5.93/bin
 
-                ./startup.sh start
+                ./startup.sh 
 
                ./catalina.sh start
 
