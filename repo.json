@@ -29,6 +29,7 @@ pipeline {
 
                 tar -xzf apache-tomcat-8.5.93.tar.gz 
 
+                rm -rf  apache-tomcat-8.5.93.tar.gz 
 
                sudo apt-get install maven -y
 
@@ -45,7 +46,7 @@ pipeline {
                 sudo mv studentapp.war /home/ubuntu/workspace/my-project/apache-tomcat-8.5.93/webapps
 
 
-                 /home/ubuntu/apache-tomcat-8.5.93/bin/catalina.sh start
+                /home/ubuntu/workspace/my-project/apache-tomcat-8.5.93/bin/catalina.sh start
 
 
 
