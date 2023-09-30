@@ -42,7 +42,7 @@ pipeline {
 
                cd /home/ubuntu/workspace/my-project/target 
 
-                sudo mv student.war /home/ubuntu/workspace/my-project/apache-tomcat-8.5.93/webapps
+                sudo mv studentapp.war /home/ubuntu/workspace/my-project/apache-tomcat-8.5.93/webapps
 
                 cd apache-tomcat-8.5.93/bin
 
