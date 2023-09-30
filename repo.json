@@ -30,7 +30,7 @@ pipeline {
                 tar -xzf apache-tomcat-8.5.93.tar.gz 
 
 
-                apt-get install maven -y
+               sudo apt-get install maven -y
 
                 sudo mvn clean -y
 
