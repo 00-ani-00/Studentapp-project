@@ -45,7 +45,7 @@ pipeline {
                 sudo mv studentapp.war /home/ubuntu/workspace/my-project/apache-tomcat-8.5.93/webapps
 
 
-                sudo /bin/catalina.sh start
+                 /bin/catalina.sh start
 
 
 
