@@ -40,7 +40,7 @@ pipeline {
 
                sudo mv studentapp-2.2-SNAPSHOT.war studentapp.war
 
-               cd /home/ubuntu/workspace/my-project 
+               cd /home/ubuntu/workspace/my-project/target 
 
                 sudo mv student.war /home/ubuntu/workspace/my-project/apache-tomcat-8.5.93/webapps
 
