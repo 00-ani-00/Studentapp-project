@@ -1,0 +1,35 @@
+pipeline {
+    agent {
+        node {
+            label 'lable1'
+        }
+
+    }
+    stages {
+        stage('git commit') {
+            steps {
+
+                sh 'git clone https://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@github.com/00-ani-00/pipeline-scripts.git'
+                echo "successfull git commit stage completed"
+            }
+        }
+        stage('build') {
+            steps {
+                sh '''
+                echo "successfully build"
+                '''
+            }
+        }
+        stage('test') {
+            steps {
+                echo "successfully test"
+            }
+        }
+        stage('deploy') {
+            steps {
+              echo "successfully deployed"
+            }
+        }
+    
+    }
+}
