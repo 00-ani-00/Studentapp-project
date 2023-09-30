@@ -1,0 +1,25 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Create Directory') {
+            steps {
+                script {
+                    def directoryName = 'myDirectory'
+                    sh "mkdir -p aniket"
+                }
+            }
+        }
+
+        stage('Create File and Write Lines') {
+            steps {
+                script {
+                    def fileName = 'my-file.txt'
+                    def lines = ['hallo bc dhanraj.', 'fuck you.']
+
+                    writeFile file: "aniket/myfile.txt", text: lines.join('\n')
+                }
+            }
+        }
+    }
+}
