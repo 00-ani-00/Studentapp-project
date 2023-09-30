@@ -43,7 +43,7 @@ pipeline {
         }
         stage('copy') {
             steps{
-           sh ''' sudo cp  /home/ubuntu/workspace/project/target/studentapp-2.2-SNAPSHOT.war /home/ubuntu/workspace/apache-tomcat-8.5.93/webapps/
+           sh ''' sudo cp  /home/ubuntu/workspace/project/target/studentapp-2.2-SNAPSHOT.war /home/ubuntu/workspace/project/apache-tomcat-8.5.93/webapps/
              '''
             }
         }
