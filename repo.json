@@ -32,9 +32,9 @@ pipeline {
 
                sudo apt-get install maven -y
 
-                sudo mvn clean -y
+                sudo mvn clean 
 
-                sudo mvn package -y
+                sudo mvn package 
 
              
 
