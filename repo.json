@@ -3,33 +3,42 @@ pipeline {
         node {
             label 'label1'
         }
-
     }
     stages {
-        stage('git commit') {
+        stage('Git Clone') {
             steps {
-
                 sh 'git clone https://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@github.com/00-ani-00/pipeline-scripts.git'
-                echo "successfull git commit stage completed"
+                echo "Successfully completed Git clone stage"
             }
         }
-        stage('build') {
+        stage('Build') {
+            steps {
+                echo "Successfully built"  // Placeholder for your build steps
+            }
+        }
+        stage('Test') {
+            steps {
+                echo "Successfully tested"  // Placeholder for your test steps
+            }
+        }
+        stage('Download and Install Tomcat') {
             steps {
                 sh '''
-                echo "successfully build"
+                
+                wget -q http://apache.mirrors.spacedump.net/tomcat/tomcat-9/v9.0.59/bin/apache-tomcat-9.0.59.tar.gz
+
+                tar xzf apache-tomcat-9.0.59.tar.gz
+
+                mv apache-tomcat-9.0.59 /opt/tomcat
+
+                rm apache-tomcat-9.0.59.tar.gz
                 '''
             }
         }
-        stage('test') {
+        stage('Deploy') {
             steps {
-                echo "successfully test"
+                echo "Successfully deployed"  // Placeholder for your deployment steps
             }
         }
-        stage('deploy') {
-            steps {
-              echo "successfully deployed"
-            }
-        }
-    
     }
 }
