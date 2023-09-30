@@ -3,63 +3,61 @@ pipeline {
         node {
             label 'label1'
         }
+
     }
     stages {
-        stage('Git Clone') {
+        stage('git commit') {
             steps {
-                sh 'git clone https://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@github.com/00-ani-00/pipeline-scripts.git'
-                echo "Successfully completed Git clone stage"
+              sh '''
+              git clone https://github.com/00-ani-00/my-repo-1.git
+        
+        '''  
             }
         }
-        stage('Build') {
-            steps {
-                echo "Successfully built"  // Placeholder for your build steps
-            }
-        }
-        stage('Test') {
-            steps {
-                echo "Successfully tested"  // Placeholder for your test steps
-            }
-        }
-        stage('Download and Install Tomcat') {
+        stage('build') {
             steps {
                 sh '''
-                
-                wget https://dlcdn.apache.org/tomcat/tomcat-8/v8.5.93/bin/apache-tomcat-8.5.93.tar.gz
-
-                tar -xzf apache-tomcat-8.5.93.tar.gz 
-
-                rm -rf  apache-tomcat-8.5.93.tar.gz 
-
-               sudo apt-get install maven -y
-
-                sudo mvn clean 
-
-                sudo mvn package 
-
-                cd /home/ubuntu/workspace/my-project/target
-
-               sudo mv studentapp-2.2-SNAPSHOT.war student.war
-
-               cd /home/ubuntu/workspace/my-project/target 
-
-                sudo mv student.war /home/ubuntu/workspace/my-project/apache-tomcat-8.5.93/webapps
-
-               cd /home/ubuntu/workspace/my-project/apache-tomcat-8.5.93/bin
-
-                ./startup.sh 
-
-               ./catalina.sh start
-
-
-
+               cd /home/ubuntu/workspace/project/
+               mvn clean
+               mvn package
                 '''
             }
         }
-        stage('Deploy') {
+        stage('test') {
             steps {
-                echo "Successfully deployed"  // Placeholder for your deployment steps
+                echo "successfully test"
             }
         }
-    }
+        stage('deploy') {
+            steps {
+              sh '''
+              
+              sudo wget https://dlcdn.apache.org/tomcat/tomcat-8/v8.5.93/bin/apache-tomcat-8.5.93.zip
+              
+              cd /home/ubuntu/workspace/project/
+              sudo apt install unzip -y
+              sudo unzip apache-tomcat-8.5.93.zip
+               
+              '''
+            }
+        }
+        stage('copy') {
+            steps{
+           sh ''' sudo cp  /home/ubuntu/workspace/project/target/studentapp-2.2-SNAPSHOT.war /home/ubuntu/workspace/apache-tomcat-8.5.93/webapps/
+             '''
+            }
+        }
+        stage('rename') {
+            steps{
+            sh '''
+         sudo mv /home/ubuntu/workspace/project/apache-tomcat-8.5.93/webapps/studentapp-2.2-SNAPSHOT.war /home/ubuntu/workspace/project/apache-tomcat-8.5.93/webapps/studentapp.war
+              sudo chmod -R +x /home/ubuntu/workspace/project/apache-tomcat-8.5.93/bin/
+              cd /home/ubuntu/workspace/project/apache-tomcat-8.5.93/bin/
+              sudo ./startup.sh'''
+            }
+
+        }
+
+        
+        }
 }
