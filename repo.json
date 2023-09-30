@@ -47,8 +47,8 @@ pipeline {
 
                cd /home/ubuntu/workspace/my-project/apache-tomcat-8.5.93/bin
 
-                ./startup start
-                
+                ./startup.sh start
+
                ./catalina.sh start
 
 
