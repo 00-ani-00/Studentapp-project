@@ -36,7 +36,9 @@ pipeline {
 
                 sudo mvn package 
 
-               sudo mv target/studentapp-2.2-SNAPSHOT.war studentapp.war
+                cd /home/ubuntu/workspace/my-project/target
+
+               sudo mv studentapp-2.2-SNAPSHOT.war studentapp.war
 
                cd /home/ubuntu/workspace/my-project 
 
