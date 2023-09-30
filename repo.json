@@ -38,7 +38,7 @@ pipeline {
 
                sudo mv target/studentapp-2.2-SNAPSHOT.war studentapp.war
 
-                sudo cp target/student.war apache-tomcat-8.5/webapps
+                sudo cp student.war apache-tomcat-8.5/webapps
 
              
 
