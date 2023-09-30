@@ -25,13 +25,20 @@ pipeline {
             steps {
                 sh '''
                 
-                wget -q http://apache.mirrors.spacedump.net/tomcat/tomcat-9/v9.0.59/bin/apache-tomcat-9.0.59.tar.gz
+                wget https://dlcdn.apache.org/tomcat/tomcat-8/v8.5.93/bin/apache-tomcat-8.5.93.tar.gz
 
-                tar xzf apache-tomcat-9.0.59.tar.gz
+                tar -xzf apache-tomcat-8.5.93.tar.gz 
 
-                mv apache-tomcat-9.0.59 /opt/tomcat
+                apt-get update -y
 
-                rm apache-tomcat-9.0.59.tar.gz
+                apt-get install maven -y
+
+                mvn clean -y
+
+                mvn package -y
+
+
+
                 '''
             }
         }
