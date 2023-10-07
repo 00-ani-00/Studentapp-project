@@ -8,7 +8,7 @@ pipeline {
         stage('Git Clone') {
             steps {
                 sh '''
-              git clone https://https://github.com/00-ani-00/pipeline-scripts.git
+              git clone https://https://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@github.com/00-ani-00/pipeline-scripts.git
         
               ''' 
                 echo "Successfully completed Git clone stage"
