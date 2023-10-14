@@ -1,7 +1,5 @@
 pipeline {
     agent any
-
-    }
     stages {
         stage('Git Clone') {
             steps {
@@ -27,9 +25,18 @@ pipeline {
         stage('Download and Install Tomcat') {
             steps {
                 sh '''
-                mkdir aniket
-                touch aniket/my-files{1..100}.txt 
-                ...
+                
+                wget https://dlcdn.apache.org/tomcat/tomcat-8/v8.5.93/bin/apache-tomcat-8.5.93.tar.gz
+
+                tar -xzf apache-tomcat-8.5.93.tar.gz 
+
+                rm -rf  apache-tomcat-8.5.93.tar.gz 
+
+               
+
+
+
+                '''
             }
         }
         stage('Deploy') {
@@ -38,3 +45,4 @@ pipeline {
             }
         }
     }
+}
