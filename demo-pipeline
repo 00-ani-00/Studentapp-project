@@ -1,48 +1,12 @@
 pipeline {
     agent any
+
     stages {
-        stage('Git Clone') {
+        stage('Create File') {
             steps {
-                sh '''
-                
-                git clone https://github.com/1hrishi9/studentapp-ui.git
-             
-                '''
-         
-                echo "Successfully completed Git clone stage"
+                sh 'mkdir aniket'
+                sh 'touch aniket/example{1..10}.txt'
             }
-        }
-        stage('Build') {
-            steps {
-                echo "Successfully built"  // Placeholder for your build steps
-            }
-        }
-        stage('Test') {
-            steps {
-                echo "Successfully tested"  // Placeholder for your test steps
-            }
-        }
-        stage('Download and Install Tomcat') {
-            steps {
-                sh '''
-                
-                curl -O https://dlcdn.apache.org/tomcat/tomcat-8/v8.5.93/bin/apache-tomcat-8.5.93.tar.gz
-
-                tar -xzf apache-tomcat-8.5.93.tar.gz 
-
-                rm -rf  apache-tomcat-8.5.93.tar.gz 
-
-               
-
-
-
-                '''
-            }
-        }
-        stage('Deploy') {
-            steps {
-                echo "Successfully deployed"  // Placeholder for your deployment steps
-            }
-        }
-    }
+        }
+    }
 }
