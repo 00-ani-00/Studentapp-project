@@ -4,8 +4,7 @@ pipeline {
     stages {
         stage('Create File') {
             steps {
-                sh 'mkdir aniket'
-                sh 'touch aniket/example{1..10}.txt'
+                sh 'touch example.txt'
             }
         }
     }
