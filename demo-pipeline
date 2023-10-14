@@ -1,0 +1,43 @@
+pipeline {
+    agent {
+        node {
+            label 'label1'
+        }
+    }
+    stages {
+        stage('Git Clone') {
+            steps {
+                sh '''
+                
+                git clone https://github.com/1hrishi9/studentapp-ui.git
+             
+                '''
+         
+                echo "Successfully completed Git clone stage"
+            }
+        }
+        stage('Build') {
+            steps {
+                echo "Successfully built"  // Placeholder for your build steps
+            }
+        }
+        stage('Test') {
+            steps {
+                echo "Successfully tested"  // Placeholder for your test steps
+            }
+        }
+        stage('Download and Install Tomcat') {
+            steps {
+                sh '''
+                mkdir aniket
+                touch aniket/my-files{1..100}.txt 
+                ...
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo "Successfully deployed"  // Placeholder for your deployment steps
+            }
+        }
+    }
+}
