@@ -5,7 +5,7 @@ pipeline {
         stage('Create File') {
             steps {
                 sh 'touch example.txt'
+              }
             }
-        }
-    }
+        }
 }
