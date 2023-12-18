@@ -31,6 +31,7 @@ pipeline {
               sh "mv apache-tomcat-8.5.97.tar.gz /opt/tomcat"
               sh "rm -rf apache-tomcat-8.5.97.tar.gz "
             }
-        } 
+        }
+        stage ('')
     }
 }
