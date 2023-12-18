@@ -21,24 +21,15 @@ pipeline {
                 sh 'mvn clean compile' 
                 sh 'mvn test'
                 sh 'mvn clean install -DskipTests=true'
+                sh 'mv target/studentapp-2.2-SNAPSHOT.war students.war'
             }
 
         }
-        stage('tomcat installation'){
+        stage('build and push'){
             steps{
-              sh "wget https://dlcdn.apache.org/tomcat/tomcat-8/v8.5.97/bin/apache-tomcat-8.5.97.tar.gz"
-              sh "tar -xzvf apache-tomcat-8.5.97.tar.gz "
-              sh "rm -rf /opt/tomcat"
-              sh "mkdir -p /opt/tomcat"
-              sh "mv apache-tomcat-8.5.97/* /opt/tomcat/"
-              sh "rm -rf apache-tomcat-8.5.97.tar.gz"
-            }
-        }
-        stage ('war and jar file'){
-            steps{
-                   sh "mv target/studentapp-2.2-SNAPSHOT.war student.war"
-                   sh "mv student.war /opt/tomcat/webapps"
-                   sh "mv mysql-connector.jar /opt/tomcat/lib"
+              sh 'docker build -t anilagad/studentapp .'
+              sh 'docker run -d --name my-cont -p 8080 anilagad/studentapp'
+              sh 'dokcer push anilagad/studentapp'
             }
         }
     }
