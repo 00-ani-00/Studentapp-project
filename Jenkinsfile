@@ -37,7 +37,7 @@ pipeline {
                     withDockerRegistry(credentialsId: 'docker', toolName: 'docker'){
                        sh 'docker system prune -af'
                        sh 'docker build -t anilagad/studentapp .'
-                       sh 'docker run -d --name my-cont -p 8080:8081 anilagad/studentapp'
+                       sh 'docker run -d --name my-cont -p 8081:8081 anilagad/studentapp'
                        sh 'dokcer push anilagad/studentapp'
                    }
                 }
