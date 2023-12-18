@@ -6,5 +6,5 @@ RUN curl -O https://dlcdn.apache.org/tomcat/tomcat-8/v8.5.97/bin/apache-tomcat-8
 RUN tar -xzvf apache-tomcat-8.5.97.tar.gz -C /opt
 COPY  mysql-connector.jar /opt/lib
 COPY students.war /opt/webapps
-EXPOSE 8080
+EXPOSE 8081
 CMD ["/opt/apache-tomcat-8.5.97/bin/startup.sh"]
