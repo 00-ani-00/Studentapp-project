@@ -26,7 +26,9 @@ pipeline {
 
         }
         stage('Docker Install'){
-                    sh 'bash docker-install.sh'
+            steps{
+                  sh 'bash docker-install.sh'
+            }
         }
         stage('build and push'){
             steps{
