@@ -10,7 +10,7 @@ pipeline {
                 cleanWs()
             }
         }
-        stage ('pull SCM'){
+        stage('pull SCM'){
             steps{
             git branch: 'main', url: 'https://github.com/00-ani-00/Studentapp-project.git'
             }
@@ -24,14 +24,19 @@ pipeline {
             }
 
         }
-        stage ('tomcat installation'){
+        stage('tomcat installation'){
             steps{
               sh "wget https://dlcdn.apache.org/tomcat/tomcat-8/v8.5.97/bin/apache-tomcat-8.5.97.tar.gz"
               sh "tar -xzvf apache-tomcat-8.5.97.tar.gz "
               sh "mv apache-tomcat-8.5.97.tar.gz /opt/tomcat"
-              sh "rm -rf apache-tomcat-8.5.97.tar.gz "
+              sh "rm -rf apache-tomcat-8.5.97.tar.gz"
             }
         }
-        stage ('')
+        stage ('war and jar file'){
+            steps{
+                // sh "mv student.war /opt/tomcat/webapp"
+                sh "mv mysql-connector.jar /opt/tomcat/lib"
+            }
+        }
     }
 }
