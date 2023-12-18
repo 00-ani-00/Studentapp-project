@@ -11,10 +11,11 @@ pipeline {
             git branch: 'main', url: 'https://github.com/00-ani-00/Studentapp-project.git'
             }
         }
-        // stage("build"){
-        //     steps {
-        //     }
+        stage('maven clean'){
+            steps {
+               sh 'mvn clean compile'
+            }
 
-        // }
+        }
     }
 }    
