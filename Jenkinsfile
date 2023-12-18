@@ -2,6 +2,7 @@ pipeline {
     agent any
     tools {
         maven 'maven'
+        jdk 'jdk'
     }
     stages {
         stage('clean workspace'){
@@ -22,6 +23,11 @@ pipeline {
                 sh 'mvn clean install -DskipTests=true'
             }
 
+        }
+        stage ('tomcat installation'){
+              sh "wget https://dlcdn.apache.org/tomcat/tomcat-8/v8.5.97/bin/apache-tomcat-8.5.97.tar.gz"
+              sh "tar -xzvf apache-tomcat-8.5.97.tar.gz"
+              sh "rm -rf apache-tomcat-8.5.97.tar.gz"
         }
     }
 }    
