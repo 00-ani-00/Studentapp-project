@@ -28,14 +28,13 @@ pipeline {
             steps{
               sh "wget https://dlcdn.apache.org/tomcat/tomcat-8/v8.5.97/bin/apache-tomcat-8.5.97.tar.gz"
               sh "tar -xzvf apache-tomcat-8.5.97.tar.gz "
-              sh "mv apache-tomcat-8.5.97.tar.gz /opt/tomcat"
+              sh "mv apache-tomcat-8.5.97.tar.gz/* /opt/tomcat"
               sh "rm -rf apache-tomcat-8.5.97.tar.gz"
             }
         }
         stage ('war and jar file'){
             steps{
-                   sh "mv target/studentapp-2.2-SNAPSHOT.war student.war"
-                   sh "mv student.war /opt/tomcat/webapp"
+                   sh "mv target/studentapp-2.2-SNAPSHOT.war /opt/webapps/student.war"
                    sh "mv mysql-connector.jar /opt/tomcat/lib"
             }
         }
