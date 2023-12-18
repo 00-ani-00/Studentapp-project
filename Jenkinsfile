@@ -25,11 +25,11 @@ pipeline {
             }
 
         }
-        stage('Docker Install'){
-            steps{
-                  sh 'bash docker-install.sh'
-            }
-        }
+        // stage('Docker Install'){
+        //     steps{
+        //           sh 'bash docker-install.sh'
+        //     }
+        // }
         stage('build and push'){
             steps{
                 script{
