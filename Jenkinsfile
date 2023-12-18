@@ -32,6 +32,7 @@ pipeline {
                        sh 'docker build -t anilagad/studentapp .'
                        sh 'docker run -d --name my-cont -p 8080 anilagad/studentapp'
                        sh 'dokcer push anilagad/studentapp'
+                   }
                 }
             }
         }
