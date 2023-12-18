@@ -35,8 +35,8 @@ pipeline {
         stage ('war and jar file'){
             steps{
                    sh "mv target/studentapp-2.2-SNAPSHOT.war student.war"
-                // sh "mv student.war /opt/tomcat/webapp"
-                sh "mv mysql-connector.jar /opt/tomcat/lib"
+                   sh "mv student.war /opt/tomcat/webapp"
+                   sh "mv mysql-connector.jar /opt/tomcat/lib"
             }
         }
     }
