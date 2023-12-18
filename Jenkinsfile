@@ -1,9 +1,9 @@
 pipeline {
     agent any
     tools {
-        maven 'maven'
-        jdk 'jdk'
-        docker 'docker'
+        maven 'maven' //install plugin of maven
+        jdk 'jdk'     //install plugin of java
+        // docker 'docker'
     }
     stages {
         stage('clean workspace'){
