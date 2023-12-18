@@ -27,9 +27,12 @@ pipeline {
         }
         stage('build and push'){
             steps{
-              sh 'docker build -t anilagad/studentapp .'
-              sh 'docker run -d --name my-cont -p 8080 anilagad/studentapp'
-              sh 'dokcer push anilagad/studentapp'
+                script{
+                    withDockerRegistry(credentialsId: 'docker', toolName: 'docker'){
+                       sh 'docker build -t anilagad/studentapp .'
+                       sh 'docker run -d --name my-cont -p 8080 anilagad/studentapp'
+                       sh 'dokcer push anilagad/studentapp'
+                }
             }
         }
     }
