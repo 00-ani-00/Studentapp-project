@@ -23,7 +23,6 @@ pipeline {
                 sh 'mvn test'
                 sh 'mvn clean install -DskipTests=true'
                 sh 'mv target/studentapp-2.2-SNAPSHOT.war student.war'
-                // sh 'rm -rf /opt/tomcat'
             }
 
         }
@@ -32,9 +31,9 @@ pipeline {
                 script{
                     withDockerRegistry(credentialsId: 'docker', toolName: 'docker'){
                        sh 'docker system prune -af'
-                    //    sh 'docker build -t anilagad/studentapp .'
-                       sh 'docker run -d --name my-cont -p 8080:8080 anilagad/tomcat-studentapp'
-                    //    sh 'docker push anilagad/studentapp'
+                       sh 'docker build -t anilagad/studentapp .'
+                    //    sh 'docker run -d --name my-cont -p 8080:8080 anilagad/tomcat-studentapp'
+                       sh 'docker push anilagad/studentapp'
                    }
                 }
             }
