@@ -23,7 +23,7 @@ pipeline {
                 sh 'mvn test'
                 sh 'mvn clean install -DskipTests=true'
                 sh 'mv target/studentapp-2.2-SNAPSHOT.war student.war'
-                sh 'rm -rf /opt/tomcat'
+                // sh 'rm -rf /opt/tomcat'
             }
 
         }
