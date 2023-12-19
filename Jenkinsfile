@@ -32,9 +32,9 @@ pipeline {
                 script{
                     withDockerRegistry(credentialsId: 'docker', toolName: 'docker'){
                        sh 'docker system prune -af'
-                       sh 'docker build -t anilagad/studentapp .'
-                       sh 'docker run -d --name my-cont -p 8080:8080 anilagad/studentapp'
-                       sh 'docker push anilagad/studentapp'
+                    //    sh 'docker build -t anilagad/studentapp .'
+                       sh 'docker run -d --name my-cont -p 8080:8080 anilagad/tomcat-studentapp'
+                    //    sh 'docker push anilagad/studentapp'
                    }
                 }
             }
