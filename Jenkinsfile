@@ -21,7 +21,7 @@ pipeline {
                 sh "mvn clean install"
                 sh 'mvn clean compile' 
                 sh 'mvn test'
-                sh 'mvn clean install -DskipTests=true'
+                sh 'mvn clean install'
                 sh 'mv target/studentapp-2.2-SNAPSHOT.war student.war'
             }
 
