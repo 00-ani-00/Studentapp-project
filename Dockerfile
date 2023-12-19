@@ -9,4 +9,5 @@ RUN mv apache-tomcat-8.5.97/* /opt/tomcat/
 COPY ./mysql-connector.jar /opt/tomcat/lib
 COPY ./student.war /opt/tomcat/webapps
 EXPOSE 8080
-CMD ["/opt/tomcat/bin/catalina.sh", "run"]
+CMD [ "/opt/tomcat/bin/startup.sh","run"] 
+#"/opt/tomcat/bin/catalina.sh",
