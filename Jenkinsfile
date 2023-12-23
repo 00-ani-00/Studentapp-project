@@ -21,7 +21,6 @@ pipeline {
                 sh "mvn clean install"
                 sh 'mvn clean compile' 
                 sh 'mvn test'
-                sh 'mvn clean install'
             }
 
         }
